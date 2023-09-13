@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMarcasTable extends Migration
+class CreateAutosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateMarcasTable extends Migration
      */
     public function up()
     {
-        Schema::create('marcas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nombre')->nullable();
-            $table->integer('estado')->nullable();
+        Schema::create('autos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('color')->nullable();
+            $table->integer('anio')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateMarcasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('marcas');
+        Schema::dropIfExists('autos');
     }
 }

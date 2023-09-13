@@ -44,6 +44,7 @@ class MarcaController extends Controller
         try {
             $marcas = new Marca();
             $marcas->nombre = $request->nombre;
+            $marcas->estado = $request->estado;
             $marcas->save();
         } catch (\Illuminate\Database\QueryException $e) {
             DB::rollBack();
@@ -75,7 +76,7 @@ class MarcaController extends Controller
      */
     public function edit(Marca $marca)
     {
-        //
+    
     }
 
     /**
@@ -85,11 +86,41 @@ class MarcaController extends Controller
      * @param  \App\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Marca $marca)
+    public function update(Request $request, $id)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $marcas = Marca::findOrFail($id);
+            $marcas->estado = 0;
+            $marcas->save();
+        } catch (\Illuminate\Database\QueryException $e) {
+            DB::rollBack();
+            abort(500, $e->errorInfo[2]);
+            return response()->json($response, 500);
+        }
+        DB::commit();
+        return redirect()->action(
+            'MarcaController@index'
+        )->with(['message' => 'Estado modificado', 'alert' => 'success']);
     }
 
+    public function updateInactive(Request $request, $id)
+    {
+        DB::beginTransaction();
+        try {
+            $marcas = Marca::findOrFail($id);
+            $marcas->estado = 1;
+            $marcas->save();
+        } catch (\Illuminate\Database\QueryException $e) {
+            DB::rollBack();
+            abort(500, $e->errorInfo[2]);
+            return response()->json($response, 500);
+        }
+        DB::commit();
+        return redirect()->action(
+            'MarcaController@index'
+        )->with(['message' => 'Estado modificado', 'alert' => 'success']);
+    }
     /**
      * Remove the specified resource from storage.
      *
