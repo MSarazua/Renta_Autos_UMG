@@ -316,7 +316,9 @@
     <script src="{{ asset('vendors/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
     <script src="{{ asset('assets/js/init-scripts/data-table/datatables-init.js') }}"></script>
 
-
+    <!--Forms-->
+    <script src="{{ asset('vendors/jquery-validation/dist/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('vendors/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js') }}"></script>
 
     <script>
         (function($) {

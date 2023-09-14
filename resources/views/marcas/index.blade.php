@@ -1,31 +1,32 @@
 @extends('layout.index')
 @section('content')
-
-    <form method="POST" action="{{ route('marcas.store') }}" enctype="multipart/form-data"
-    onsubmit="return checkSubmit();">
-        {{ csrf_field() }}
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Nombre de marca</label>
-            <input type="text" class="form-control" name="nombre" id="exampleFormControlInput1" placeholder="Ingrese el nombre">
-        </div>
-        <div class="mn-3">
-            <select class="form-select" name="estado" aria-label="Default select example">
-                <option selected>Estado de la marca</option>
-                <option value="1">Activa</option>
-                <option value="0">Inactiva</option>
-            </select>
-        </div><br>
-        <div class="container">
-            <div class="row">
-                <div class="col text-center">
-                    <button type="submit" style="border-radius: 10px" class="btn btn btn-primary">
-                        <i class="fas fa-save"></i>
-                        {{ __('GUARDAR') }}
-                    </button>
-                </div>
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">Ingreso de marcas</div>
+            <div class="card-body card-block">
+                <form method="POST" action="{{ route('marcas.store') }}" enctype="multipart/form-data"
+                onsubmit="return checkSubmit();">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                            <input type="text" class="form-control" name="nombre" id="exampleFormControlInput1" placeholder="Ingrese el nombre">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <select class="form-control" name="estado" aria-label="Default select example">
+                                <option selected>Estado de la marca</option>
+                                <option value="1">Activa</option>
+                                <option value="0">Inactiva</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions form-group"><button type="submit" class="btn btn-primary btn-sm">GUARDAR</button></div>
+                </form>
             </div>
         </div>
-    </form>
+    </div>
     <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
