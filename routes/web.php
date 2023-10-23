@@ -17,3 +17,7 @@ Route::get('/', function () {
 
 Route::resource('marcas', 'MarcaController');
 Route::post('modificar/marcas/{id}', 'MarcaController@updateInactive');
+
+Route::get('/info', function () {
+    phpinfo();
+});
