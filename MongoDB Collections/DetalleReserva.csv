@@ -1,0 +1,2 @@
+﻿ID_DetalleReserva,ID_Usuario,ID_Vehiculo,FechaSalida,FechaEntrada,PrecioBase,Descuento,Adicionales,PrecioFinalCliente,PrecioTotal
+1,3,1,10/20/2023,10/23/2023,150,0,18,168,504
