@@ -1,4 +1,4 @@
-@extends('layout.index')
+@extends('layout.oficial')
 @section('content')
     <div class="col-lg-12">
         <div class="card">
