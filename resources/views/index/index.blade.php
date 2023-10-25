@@ -69,21 +69,23 @@
     <div class="container">
         <div class="card-group col-12">
           @foreach ($autos->Message as $index)
-              <div class="card card_vehiculos col-sm-12">
-                <img src="{{ $index->ImgCar }}<" class="card-img-top" alt="...">
-                <div class="card-footer">
-                  <center>
-                    @foreach ($marcas->Message as $indexM)
-                      @if ($indexM->ID_Marca == $index->Marca)
-                        <a target="_blank" href="{{ url('detalleVehiculo/' . $index->ID_Vehiculo ) }}" type="submit" class="btn-lg btn text-white btn_vehiculo">
-                          {{ $indexM->Marca }}
-                          <img style="width: 2rem" src= "{{ asset('img/flecha.png') }}">
-                        </a>
-                      @endif
-                    @endforeach
-                  </center>
-                </div>
+            @if (($index->Disponible == "Si"))
+            <div class="card card_vehiculos col-sm-12">
+              <img src="{{ $index->ImgCar }}<" class="card-img-top" alt="...">
+              <div class="card-footer">
+                <center>
+                  @foreach ($marcas->Message as $indexM)
+                    @if (($indexM->ID_Marca == $index->Marca))
+                      <a target="_blank" href="{{ url('detalleVehiculo/' . $index->ID_Vehiculo ) }}" type="submit" class="btn-lg btn text-white btn_vehiculo">
+                        {{ $indexM->Marca }}
+                        <img style="width: 2rem" src= "{{ asset('img/flecha.png') }}">
+                      </a>
+                    @endif
+                  @endforeach
+                </center>
               </div>
+            </div>
+            @endif
           @endforeach
         </div>
     </div>
