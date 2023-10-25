@@ -74,17 +74,21 @@
 
 
         <div class="container">
-            <center>
+            <div class="row">
+                <center>
+                    <div class="col-md-3">
 
-                <div class="circle-container">
-                    <div class="circle circle-image">
-                        <img src="{{ asset('img/SLAC_1.webp') }}" alt="Imagen">
+                        <div class="circle-container">
+                            <div class="circle circle-image img1">
+
+                            </div>
+                            <div class="circle circle-text">
+                                <p>Texto superpuesto</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="circle circle-text">
-                        <p>Texto superpuesto</p>
-                    </div>
-                </div>
-            </center>
+                </center>
+            </div>
         </div>
     </div>
 @endsection

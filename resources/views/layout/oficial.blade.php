@@ -119,35 +119,59 @@
         /* Centrar el círculo */
     }
 
-    .circle-image {
-        background-color: #3498db;
+    .circle-image,
+    .img1,
+    .img2,
+    .img3,
+    .img4 {
+
         /* Color del círcurgb(52, 152, 219)imagen */
-        z-index: 2;
+        z-index: 3;
         /* Capa superior */
         margin-top: -5rem;
+        border-radius: 100%;
+        /* URL de tu imagen */
 
-        border-radius: 100%
+        /* Ajusta el tamaño de la imagen */
     }
 
-    .circle-image>img {
-        width: 100%;
-
+    .img1 {
+        background-image: url('https://media-public.canva.com/MADGybaN6W0/4/screen.jpg');
+        background-size: contain;
     }
+
+    .img2 {
+        background-image: url('https://media-public.canva.com/MADGybaN6W0/4/screen.jpg');
+        background-size: contain;
+    }
+
+    .img3 {
+        background-image: url('https://media-public.canva.com/MADGybaN6W0/4/screen.jpg');
+        background-size: contain;
+    }
+
+    .img4 {
+        background-image: url('https://media-public.canva.com/MADGvugSTuo/7/screen.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
 
     .circle-text {
         background-color: #C70039;
         /* Color del círculo del texto */
-        z-index: 1;
-
-    }
-
-    .circle-text>p {
-        z-index: 5;
-        /* Capa inferior */
+        z-index: 2;
         text-align: center;
         line-height: 100px;
         /* Centrar verticalmente el texto */
         color: #fff;
+
+    }
+
+    .circle-text>p {
+        z-index: 2;
+        /* Capa inferior */
+
         /* Color del texto */
     }
 
