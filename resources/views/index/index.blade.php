@@ -1,5 +1,6 @@
 @extends('layout.oficial')
 @section('content')
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9 offset-md-3 "><img class="homeCar" src= "{{ asset('img/CR001.png') }}"></div>
@@ -65,41 +66,25 @@
           </div>
         </div> --}}
     </div>
-    {{ $object }}
-    <div class="container card-group-bg-white">
-        <div class="card-group">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                        content. This content is a little bit longer.</p>
-                </div>
+    <div class="container">
+        <div class="card-group col-12">
+          @foreach ($autos->Message as $index)
+              <div class="card card_vehiculos col-sm-12">
+                <img src="{{ $index->ImgCar }}<" class="card-img-top" alt="...">
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                  <center>
+                    @foreach ($marcas->Message as $indexM)
+                      @if ($indexM->ID_Marca == $index->Marca)
+                        <a target="_blank" href="{{ url('detalleVehiculo/' . $index->ID_Vehiculo ) }}" type="submit" class="btn-lg btn text-white btn_vehiculo">
+                          {{ $indexM->Marca }}
+                          <img style="width: 2rem" src= "{{ asset('img/flecha.png') }}">
+                        </a>
+                      @endif
+                    @endforeach
+                  </center>
                 </div>
-            </div>
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                        content. This card has even longer content than the first to show that equal height action.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
+              </div>
+          @endforeach
         </div>
     </div>
 @endsection
