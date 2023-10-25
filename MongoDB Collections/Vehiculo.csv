@@ -1,4 +1,4 @@
-﻿ID_Vehiculo,Clase,Transmision,Asientos,Motor,Color,Entretenimiento,AC,Marca,Placa,Ano,Disponible
-1,1,Automatica,4,1.6,Negro,Si,Si,1,959HJS,2019,Si
-2,1,Manual,4,1.8,Blanco,Si,Si,2,239DAJ,2020,Si
-3,2,Automatico,5,2,Azul,Si,Si,3,190FHS,2021,Si
+﻿ID_Vehiculo,Clase,Transmision,Asientos,Motor,Color,Entretenimiento,AC,Marca,Placa,Ano,Disponible,Linea,ImgCar
+1,1,Automatica,4,1.6,Negro,Si,Si,1,959HJS,2019,Si,Sedan,https://21623072.fs1.hubspotusercontent-na1.net/hubfs/21623072/Rentacar%20Assets/Vehicles/ECCA_1.webp?hsCacheBuster=7229
+2,1,Manual,4,1.8,Blanco,Si,Si,2,239DAJ,2020,Si,Hatchback,https://21623072.fs1.hubspotusercontent-na1.net/hubfs/21623072/Rentacar%20Assets/Vehicles/ECCA_1.webp?hsCacheBuster=7230
+3,2,Automatico,5,2,Azul,Si,Si,3,190FHS,2021,Si,Agricola,https://21623072.fs1.hubspotusercontent-na1.net/hubfs/21623072/Rentacar%20Assets/Vehicles/ECCA_1.webp?hsCacheBuster=7231
