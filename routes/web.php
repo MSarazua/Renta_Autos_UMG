@@ -21,3 +21,6 @@ Route::post('modificar/marcas/{id}', 'MarcaController@updateInactive');
 Route::get('/info', function () {
     phpinfo();
 });
+
+Route::resource('index', 'AutosController');
+Route::get('detalleVehiculo/{id}', 'AutosController@detalleVehiculo');

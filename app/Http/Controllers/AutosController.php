@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Autos;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 class AutosController extends Controller
 {
@@ -14,7 +15,28 @@ class AutosController extends Controller
      */
     public function index()
     {
-        //
+        $autos = new Client();
+        $response = $autos->request('GET', "http://localhost/renta_autosUmg/public/api/vehiculos");
+        $data = json_decode($response->getBody());
+
+        $marcas = new Client();
+        $response = $marcas->request('GET', "http://localhost/renta_autosUmg/public/api/marca");
+        $marcas = json_decode($response->getBody());
+
+        return view('index.index', ['autos' => $data, 'marcas' => $marcas]);
+    }
+
+    public function detalleVehiculo($id) {
+        $detalleAutos = new Client();
+        $response = $detalleAutos->request('GET', "http://localhost/renta_autosUmg/public/api/vehiculos");
+        $data = json_decode($response->getBody());
+
+        $marcas = new Client();
+        $response = $marcas->request('GET', "http://localhost/renta_autosUmg/public/api/marca");
+        $marcas = json_decode($response->getBody());
+
+
+        return view('index.detalleVehiculo', ['detalleAutos' => $data, 'idVehiculo' => $id, 'marcas' => $marcas]);
     }
 
     /**
@@ -24,7 +46,7 @@ class AutosController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

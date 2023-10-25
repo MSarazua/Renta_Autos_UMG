@@ -13,8 +13,6 @@
 <style>
       .bg_header {
           background-color: #C70039 !important;
-          font-family: 'Roboto Mono', monospace;
-          font-family: 'Sintony', sans-serif;
           font-size: 1.5rem;
       }
       .bg_body {
@@ -22,8 +20,8 @@
           background-color: #3c486b;
           background-image: linear-gradient(119deg, #3c486b 42%, #47b5ff 100%);
           margin: 20px;
-          overflow: hidden;
-          height: 100vh;
+          overflow: auto;
+          height: 100%;
       }
       
       /* Agrega una capa negra transparente solo sobre el body */
@@ -53,21 +51,41 @@
       * {
           position: relative;
           z-index: 2;
+          font-family: 'Roboto Mono', monospace !important;
+          font-family: 'Sintony', sans-serif !important;
       }
 
       .titulo_vehiculo {
         color: white;
-        font-family: 'Roboto Mono', monospace;
-        font-family: 'Sintony', sans-serif;
         font-size: 3.5rem
       }
 
       .btn_reservar {
         border-radius: 50px; 
         background-color: #47B5FF;
-        font-family: 'Roboto Mono', monospace;
-        font-family: 'Sintony', sans-serif;
         font-size: 2rem
+      }
+      .homeCar{
+        width: 100%;
+      }
+      #carouselExampleDark>*{
+        z-index: 3;
+      }
+      
+      .card-group-bg-white {
+          background-color: #fff; /* Color blanco */
+          padding: 20px; /* Agrega espacio de relleno si es necesario */
+      }
+      .btn_vehiculo {
+        border-radius: 50px; 
+        background-color: #C70039;
+        font-size: 1.5rem;
+        min-width: 50%;
+        max-width: 100%;
+      }
+
+      .card_vehiculos {
+        margin-left: 3% !important
       }
 </style>
 <body class="bg_body">
@@ -93,5 +111,6 @@
     <div class="content mt-3">
         @yield('content')
     </div> <!-- .content -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
