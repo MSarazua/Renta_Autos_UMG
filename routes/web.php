@@ -23,4 +23,6 @@ Route::get('/info', function () {
 });
 
 Route::resource('index', 'AutosController');
-Route::get('detalleVehiculo/{id}', 'AutosController@detalleVehiculo');
+Route::get('detalleVehiculo/{id}/{idUsuario}', 'AutosController@detalleVehiculo');
+Route::get('login', 'LoginController@index');
+Route::post('userLogin', 'LoginController@create');

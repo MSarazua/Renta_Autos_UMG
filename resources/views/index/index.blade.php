@@ -76,7 +76,7 @@
                 <center>
                   @foreach ($marcas->Message as $indexM)
                     @if (($indexM->ID_Marca == $index->Marca))
-                      <a target="_blank" href="{{ url('detalleVehiculo/' . $index->ID_Vehiculo ) }}" type="submit" class="btn-lg btn text-white btn_vehiculo">
+                      <a target="_blank" href="{{ url('detalleVehiculo/' . $index->ID_Vehiculo . '/' . $id_usuario ) }}" type="submit" class="btn-lg btn text-white btn_vehiculo">
                         {{ $indexM->Marca }}
                         <img style="width: 2rem" src= "{{ asset('img/flecha.png') }}">
                       </a>

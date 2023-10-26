@@ -26,7 +26,7 @@ class AutosController extends Controller
         return view('index.index', ['autos' => $data, 'marcas' => $marcas]);
     }
 
-    public function detalleVehiculo($id) {
+    public function detalleVehiculo($id, $id_usuario) {
         $detalleAutos = new Client();
         $response = $detalleAutos->request('GET', "http://localhost/renta_autosUmg/public/api/vehiculos");
         $data = json_decode($response->getBody());
@@ -35,8 +35,7 @@ class AutosController extends Controller
         $response = $marcas->request('GET', "http://localhost/renta_autosUmg/public/api/marca");
         $marcas = json_decode($response->getBody());
 
-
-        return view('index.detalleVehiculo', ['detalleAutos' => $data, 'idVehiculo' => $id, 'marcas' => $marcas]);
+        return view('index.detalleVehiculo', ['detalleAutos' => $data, 'idVehiculo' => $id, 'marcas' => $marcas, 'id_usuario' => $id_usuario]);
     }
 
     /**
