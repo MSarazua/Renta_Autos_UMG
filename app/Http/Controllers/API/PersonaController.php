@@ -20,7 +20,6 @@ class PersonaController extends Controller
     {
         $Persona = new Persona();
         $Persona->ID_Persona = $request->ID_Persona;
-        $Persona->ID_Usuario = $request->ID_Usuario;
         $Persona->Nombre = $request->Nombre;
         $Persona->Apellido = $request->Apellido;
         $Persona->Numero = $request->Numero;

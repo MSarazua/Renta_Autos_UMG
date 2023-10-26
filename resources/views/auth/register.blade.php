@@ -11,9 +11,9 @@
                 <div class="login-form">
                     <form  method="POST" action="{{ url('userRegister') }}">
                         {{ csrf_field() }}
-                        <input type="text" name="ID_Persona" value="5">
-                        <input type="text" name="ID_Rol" value="5">
-                        <input type="text" name="Estado" value="1">
+                        <input type="hidden" name="ID_Persona" value="9">
+                        <input type="hidden" name="ID_Rol" value="9">
+                        <input type="hidden" name="Estado" value="1">
                         <div class="form-group">
                             <label>Nombre</label>
                             <input type="text" name="Nombre" class="form-control" placeholder="Nombre">
@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-group">
                             <label>Usuario</label>
-                            <input type="text" name="Usuario" class="form-control" placeholder="Usuario">
+                            <input type="text" name="Username" class="form-control" placeholder="Usuario">
                         </div>
                         <div class="form-group">
                             <label>Password</label>

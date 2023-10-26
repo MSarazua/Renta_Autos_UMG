@@ -35,9 +35,18 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        $registerUser = new Client();
+        $id_usuario = $request->ID_Persona;
 
-        $response = $registerUser->request('POST', "http://localhost/renta_autosUmg/public/api/persona", [
+        $autos = new Client();
+        $response = $autos->request('GET', "http://localhost/renta_autosUmg/public/api/vehiculos");
+        $dataV = json_decode($response->getBody());
+
+        $marcas = new Client();
+        $response = $marcas->request('GET', "http://localhost/renta_autosUmg/public/api/marca");
+        $marcas = json_decode($response->getBody());
+
+        $registerPerson = new Client();
+        $response = $registerPerson->request('POST', "http://localhost/renta_autosUmg/public/api/persona", [
             'form_params' => [
                 'ID_Persona' => $request->ID_Persona,
                 'Nombre' => $request->Nombre,
@@ -50,6 +59,7 @@ class RegisterController extends Controller
         $decode = json_decode($response->getBody());
         $object = (object) $decode;
 
+        $registerUser = new Client();
         $response = $registerUser->request('POST', "http://localhost/renta_autosUmg/public/api/usuarios", [
             'form_params' => [
                 'ID_Usuario' => $request->ID_Persona,
@@ -60,6 +70,10 @@ class RegisterController extends Controller
                 "Estado" => $request->Estado
             ]
         ]);
+        $decode2 = json_decode($response->getBody());
+        $object2 = (object) $decode2;
+
+        return view('index.index', ['autos' => $dataV, 'marcas' => $marcas, 'id_usuario' => $id_usuario]);
     }
 
     /**
