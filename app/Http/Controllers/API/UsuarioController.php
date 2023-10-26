@@ -24,10 +24,10 @@ class UsuarioController extends Controller
         $Usuarios->ID_Persona = $request->ID_Persona;
         $Usuarios->ID_Rol = $request->ID_Rol;
         $Usuarios->Contrasena = $request->Contrasena;
+        $Usuarios->Estado = $request->Estado;
         $Usuarios->save();
         return response()->json([
-            'result' => $Usuarios,
-            response::HTTP_CREATED
+            'result' => $Usuarios
         ]);
 
     }
@@ -43,6 +43,7 @@ class UsuarioController extends Controller
             $Usuarios->ID_Persona = $request->ID_Persona;
             $Usuarios->ID_Rol = $request->ID_Rol;
             $Usuarios->Contrasena = $request->Contrasena;
+            $Usuarios->Estado = $request->Estado;
             $Usuarios->save();
             return response()->json(['data' => $Usuarios], 200);
         } catch (\Exception $e) {

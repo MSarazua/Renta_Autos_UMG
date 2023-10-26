@@ -33,8 +33,7 @@ class VehiculoController extends Controller
         $Vehiculo->Disponible = $request->Disponible;
         $Vehiculo->save();
         return response()->json([
-            'result' => $Vehiculo,
-            response::HTTP_CREATED
+            'result' => $Vehiculo
         ]);
 
     }

@@ -26,8 +26,7 @@ class FormularioController extends Controller
         $Formulario->ID_Usuario = $request->ID_Usuario;
         $Formulario->save();
         return response()->json([
-            'result' => $Formulario,
-            response::HTTP_CREATED
+            'result' => $Formulario
         ]);
 
     }

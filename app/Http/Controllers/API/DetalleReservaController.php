@@ -21,18 +21,17 @@ class DetalleReservaController extends Controller
         $DetalleReserva = new DetalleReserva();
         $DetalleReserva->ID_DetalleReserva = $request->ID_DetalleReserva;
         $DetalleReserva->ID_Usuario = $request->ID_Usuario;
-        $DetalleReserva->ID_Vehiculo = $request->ID_VID_Vehiculoehiculo;
-        $DetalleReserva->FechaSalida = $request->ID_FechaSalida;
-        $DetalleReserva->FechaEntrada = $request->ID_Entrada;
-        $DetalleReserva->PrecioBase = $request->ID_PrecioBase;
-        $DetalleReserva->Descuento = $request->ID_Descuento;
-        $DetalleReserva->Adicionales = $request->ID_Adicionales;
-        $DetalleReserva->recioFinalCliente = $request - $request->PrecioFinalCliente;
-        $DetalleReserva->PrecioTotal = $request - $request->PrecioTotal;
+        $DetalleReserva->ID_Vehiculo = $request->ID_Vehiculo;
+        $DetalleReserva->FechaSalida = $request->FechaSalida;
+        $DetalleReserva->FechaEntrada = $request->FechaEntrada;
+        $DetalleReserva->PrecioBase = $request->PrecioBase;
+        $DetalleReserva->Descuento = $request->Descuento;
+        $DetalleReserva->Adicionales = $request->Adicionales;
+        $DetalleReserva->PrecioFinalCliente = $request->PrecioFinalCliente;
+        $DetalleReserva->PrecioTotal = $request->PrecioTotal;
         $DetalleReserva->save();
         return response()->json([
-            'result' => $DetalleReserva,
-            response::HTTP_CREATED
+            'result' => $DetalleReserva
         ]);
 
     }
@@ -45,18 +44,18 @@ class DetalleReservaController extends Controller
             }
             $DetalleReserva->ID_DetalleReserva = $request->ID_DetalleReserva;
             $DetalleReserva->ID_Usuario = $request->ID_Usuario;
-            $DetalleReserva->ID_Vehiculo = $request->ID_VID_Vehiculoehiculo;
-            $DetalleReserva->FechaSalida = $request->ID_FechaSalida;
-            $DetalleReserva->FechaEntrada = $request->ID_Entrada;
-            $DetalleReserva->PrecioBase = $request->ID_PrecioBase;
-            $DetalleReserva->Descuento = $request->ID_Descuento;
-            $DetalleReserva->Adicionales = $request->ID_Adicionales;
-            $DetalleReserva->recioFinalCliente = $request - $request->PrecioFinalCliente;
-            $DetalleReserva->PrecioTotal = $request - $request->PrecioTotal;
+            $DetalleReserva->ID_Vehiculo = $request->ID_Vehiculo;
+            $DetalleReserva->FechaSalida = $request->FechaSalida;
+            $DetalleReserva->FechaEntrada = $request->FechaEntrada;
+            $DetalleReserva->PrecioBase = $request->PrecioBase;
+            $DetalleReserva->Descuento = $request->Descuento;
+            $DetalleReserva->Adicionales = $request->Adicionales;
+            $DetalleReserva->PrecioFinalCliente = $request->PrecioFinalCliente;
+            $DetalleReserva->PrecioTotal = $request->PrecioTotal;
             $DetalleReserva->save();
             return response()->json(['data' => $DetalleReserva], 200);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'An error occurred'], 500);
+            return response()->json(['message' => 'An error occurred'] + $e, 500);
         }
     }
 

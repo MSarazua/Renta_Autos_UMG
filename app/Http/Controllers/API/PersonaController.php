@@ -19,8 +19,6 @@ class PersonaController extends Controller
     public function store(Request $request)
     {
         $Persona = new Persona();
-        $Persona->ID_Marca = $request->ID_Marca;
-        $Persona->Descripcion = $request->Descripcion;
         $Persona->ID_Persona = $request->ID_Persona;
         $Persona->ID_Usuario = $request->ID_Usuario;
         $Persona->Nombre = $request->Nombre;
@@ -30,8 +28,7 @@ class PersonaController extends Controller
         $Persona->Documento = $request->Documento;
         $Persona->save();
         return response()->json([
-            'result' => $Persona,
-            response::HTTP_CREATED
+            'result' => $Persona
         ]);
 
     }
@@ -42,8 +39,6 @@ class PersonaController extends Controller
             if (!$Persona) {
                 return response()->json(['message' => 'Not found'], 404);
             }
-            $Persona->ID_Marca = $request->ID_Marca;
-            $Persona->Descripcion = $request->Descripcion;
             $Persona->ID_Persona = $request->ID_Persona;
             $Persona->ID_Usuario = $request->ID_Usuario;
             $Persona->Nombre = $request->Nombre;

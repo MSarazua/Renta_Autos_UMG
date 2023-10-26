@@ -23,8 +23,7 @@ class ClaseController extends Controller
         $clase->Descripcion = $request->Descripcion;
         $clase->save();
         return response()->json([
-            'result' => $clase,
-            response::HTTP_CREATED
+            'result' => $clase
         ]);
 
     }
