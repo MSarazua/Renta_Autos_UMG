@@ -1,6 +1,6 @@
 @extends('layout.oficial')
 @section('content')
-
+{{ $id_usuario }}
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9 offset-md-3 "><img class="homeCar" src= "{{ asset('img/CR001.png') }}"></div>

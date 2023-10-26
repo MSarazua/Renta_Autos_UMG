@@ -37,7 +37,7 @@
                         <img style="width: 2rem" src= "{{ asset('img/flecha.png') }}">
                     </button>
                     <div class="register-link m-t-15 text-center">
-                        <p>¿No tienes una cuenta? <a href="#">Regístrate</a></p>
+                        <p>¿No tienes una cuenta? <a href="{{ url('register') }}">Regístrate</a></p>
                    </div>
                 </form>
             </div>

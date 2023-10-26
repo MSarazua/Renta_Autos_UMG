@@ -34,7 +34,8 @@
                                                     <form method="POST" action="{{ url('api/detallereserva') }}">
                                                         {{ csrf_field() }}
                                                         <input type="hidden" name="_method" value="POST">
-                                                        <input type="hidden" name="ID_DetalleReserva" value="3">
+                                                        <input type="hidden" name="ID_Reserva" value="6">
+                                                        <input type="hidden" name="ID_DetalleReserva" value="6">
                                                         <input type="hidden" name="ID_Usuario" value="{{ $id_usuario }}">
                                                         <input type="hidden" name="ID_Vehiculo" value="{{$index->ID_Vehiculo}}">
                                                         <div class="input-group mb-3">
@@ -63,6 +64,9 @@
                                                         </div>
                                                         <div class="input-group mb-3">
                                                             <input type="text" class="form-control" name="PrecioTotal" placeholder="Precio Total" aria-label="Precio Total">
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <input type="text" class="form-control" name="Descripcion" placeholder="Descripción" aria-label="Descripcion">
                                                         </div>
                                                         <button type="submit" class="btn btn-lg text-light" style="background-color: #3C486B; float: right; border-radius: 20px">
                                                             Confirmar reserva

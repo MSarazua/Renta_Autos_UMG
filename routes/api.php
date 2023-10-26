@@ -33,6 +33,11 @@ Route::post('persona', 'API\PersonaController@store');
 Route::put('persona/{ID_Persona}', 'API\PersonaController@update');
 Route::delete('persona/{ID_Persona}', 'API\PersonaController@destroy');
 
+Route::get('reserva', 'API\ReservaController@index');
+Route::post('reserva', 'API\ReservaController@store');
+Route::put('reserva/{ID_Reserva}', 'API\ReservaController@update');
+Route::delete('reserva/{ID_Reserva}', 'API\ReservaController@destroy');
+
 Route::get('roles', 'API\RolesController@index');
 Route::post('roles', 'API\RolesController@store');
 Route::put('roles/{ID_Rol}', 'API\RolesController@update');

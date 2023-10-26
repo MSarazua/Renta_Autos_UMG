@@ -21,24 +21,21 @@ class ReservaController extends Controller
         $Reserva = new Reserva();
         $Reserva->ID_Reserva = $request->ID_Reserva;
         $Reserva->Descripcion = $request->Descripcion;
-        $Reserva->ID_DetalleReserva = $request->ID_DetalleReserva;
         $Reserva->save();
         return response()->json([
-            'result' => $Reserva,
-            response::HTTP_CREATED
+            'result' => $Reserva
         ]);
 
     }
     public function update(Request $request, int $ID_Reserva)
     {
         try {
-            $Reserva = Reserva::where('ID_Persona', $ID_Reserva)->first();
+            $Reserva = Reserva::where('ID_Reserva', $ID_Reserva)->first();
             if (!$Reserva) {
                 return response()->json(['message' => 'Not found'], 404);
             }
             $Reserva->ID_Reserva = $request->ID_Reserva;
             $Reserva->Descripcion = $request->Descripcion;
-            $Reserva->ID_DetalleReserva = $request->ID_DetalleReserva;
             $Reserva->save();
             return response()->json(['data' => $Reserva], 200);
         } catch (\Exception $e) {

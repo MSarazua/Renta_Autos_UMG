@@ -39,8 +39,16 @@
         color: white;
         max-width: 100%;
       }
+    .bg_body {
+        background-image: url("{{ asset('img/fondo.jpg') }}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: 100% center;
+    }
+
 </style>
-<body>
+<body class="bg_body">
 
     <div class="content mt-3">
         @yield('content')

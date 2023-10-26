@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 
-class LoginController extends Controller
+class RegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view('auth.login');
+        return view('auth.register');
     }
 
     /**
@@ -22,32 +22,11 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $detalleAutos = new Client();
-        $response = $detalleAutos->request('GET', "http://localhost/renta_autosUmg/public/api/usuarios");
-        $data = json_decode($response->getBody(), true);
-
-        $autos = new Client();
-        $response = $autos->request('GET', "http://localhost/renta_autosUmg/public/api/vehiculos");
-        $dataV = json_decode($response->getBody());
-
-        $marcas = new Client();
-        $response = $marcas->request('GET', "http://localhost/renta_autosUmg/public/api/marca");
-        $marcas = json_decode($response->getBody());
-
-        if (isset($data['Message']) && is_array($data['Message'])) {
-            for ($i = 0; $i < count($data['Message']); $i++) {
-                if (($data['Message'][$i]['Username'] == $request->user) && ($data['Message'][$i]['Contrasena'] == $request->password)) {
-                    $id_usuario = $data['Message'][$i]['ID_Usuario'];
-                    return view('index.index', ['autos' => $dataV, 'marcas' => $marcas, 'id_usuario' => $id_usuario]);
-                } else {
-                    return view('auth.login')->with('error', 'Credenciales incorrectas');
-                }
-            }
-        }
+        //
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -56,7 +35,31 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $registerUser = new Client();
+
+        $response = $registerUser->request('POST', "http://localhost/renta_autosUmg/public/api/persona", [
+            'form_params' => [
+                'ID_Persona' => $request->ID_Persona,
+                'Nombre' => $request->Nombre,
+                "Apellido" => $request->Apellido,
+                "Numero" => $request->Numero,
+                "Correo" => $request->Correo,
+                "Documento" => $request->Documento
+            ]
+        ]);
+        $decode = json_decode($response->getBody());
+        $object = (object) $decode;
+
+        $response = $registerUser->request('POST', "http://localhost/renta_autosUmg/public/api/usuarios", [
+            'form_params' => [
+                'ID_Usuario' => $request->ID_Persona,
+                'ID_Persona' => $request->ID_Persona,
+                'Username' => $request->Username,
+                "Contrasena" => $request->Contrasena,
+                "ID_Rol" => $request->ID_Rol,
+                "Estado" => $request->Estado
+            ]
+        ]);
     }
 
     /**

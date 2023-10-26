@@ -23,8 +23,7 @@ class MarcasController extends Controller
         $Marcas->Marca = $request->Marca;
         $Marcas->save();
         return response()->json([
-            'result' => $Marcas,
-            response::HTTP_CREATED
+            'result' => $Marcas
         ]);
 
     }
@@ -47,7 +46,7 @@ class MarcasController extends Controller
     public function destroy(int $ID_Marca)
     {
         try {
-            $Marcas = Marcas::where('ID_Formulario', $ID_Marca)->first();
+            $Marcas = Marcas::where('ID_Marca', $ID_Marca)->first();
 
             if (!$Marcas) {
                 return response()->json(['message' => 'Not found'], 404);

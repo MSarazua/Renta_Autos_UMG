@@ -23,8 +23,7 @@ class RolesController extends Controller
         $Roles->Descripcion = $request->Descripcion;
         $Roles->save();
         return response()->json([
-            'result' => $Roles,
-            response::HTTP_CREATED
+            'result' => $Roles
         ]);
 
     }

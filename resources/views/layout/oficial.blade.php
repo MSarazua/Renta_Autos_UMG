@@ -102,7 +102,7 @@
               <li><a href="#" class="nav-link px-2 text-white">Cotizar</a></li>
             </ul>
             <div class="text-end">
-              <button type="button" class="btn me-2"><img class="img_login" src= "{{ asset('img/usuario.png') }}"></button>
+              <a href="{{ url('login') }}" type="button" class="btn me-2"><img class="img_login" src= "{{ asset('img/usuario.png') }}"></a>
               {{-- <button type="button" class="btn btn-warning">Sign-up</button> --}}
             </div>
           </div>
