@@ -33,8 +33,7 @@
                             <a href="#">Forgotten Password?</a>
                         </label>
                     </div> --}}
-                    <button type="submit" class="btn btn_vehiculo btn-flat m-b-30 m-t-30">Iniciar sesión  
-                        <img style="width: 2rem" src= "{{ asset('img/flecha.png') }}">
+                    <button type="submit" class="btn btn_vehiculo btn-flat m-b-30 m-t-30">Iniciar sesión
                     </button>
                     <div class="register-link m-t-15 text-center">
                         <p>¿No tienes una cuenta? <a href="{{ url('register') }}">Regístrate</a></p>

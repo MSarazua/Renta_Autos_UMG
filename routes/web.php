@@ -28,3 +28,4 @@ Route::get('login', 'LoginController@index');
 Route::get('register', 'RegisterController@index');
 Route::post('userLogin', 'LoginController@create');
 Route::post('userRegister', 'RegisterController@store');
+Route::get('logout/{idUsuario}', 'LoginController@logout');

@@ -1,6 +1,5 @@
 @extends('layout.oficial')
 @section('content')
-{{ $id_usuario }}
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9 offset-md-3 "><img class="homeCar" src= "{{ asset('img/CR001.png') }}"></div>
@@ -66,7 +65,7 @@
           </div>
         </div> --}}
     </div>
-    <div class="container">
+    <div class="container" id="Reservar">
         <div class="card-group col-12">
           @foreach ($autos->Message as $index)
             @if (($index->Disponible == "Si"))
@@ -88,5 +87,8 @@
             @endif
           @endforeach
         </div>
+        <a style="margin-left: 100%" href="{{ url('logout/' . $id_usuario) }}" type="button" class="btn me-2">
+          <img class="img_login" src= "{{ asset('img/logout.png') }}">
+        </a>
     </div>
 @endsection

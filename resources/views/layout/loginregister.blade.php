@@ -40,7 +40,7 @@
         max-width: 100%;
       }
     .bg_body {
-        background-image: url("{{ asset('img/fondo.jpg') }}");
+        background-image: url("https://media-public.canva.com/MADGxAZbRz8/6/screen_2x.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
